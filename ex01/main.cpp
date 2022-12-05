@@ -1,9 +1,12 @@
 #include "Zombie.hpp"
-#include <iostream>
-#include <algorithm>
 
-int	main()
+int main()
 {
-	Zombie horde;
-	horde.announce();
+    int n = 6;
+    Zombie *h = zombieHorde(n, " ethan");
+
+    for (int i = 0; i < n; i++)
+        h[i].announce();
+    delete[] h;
+    return (1);
 }

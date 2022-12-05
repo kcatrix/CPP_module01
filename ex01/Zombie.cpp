@@ -1,32 +1,20 @@
 #include "Zombie.hpp"
-#include <iostream>
 
-Zombie::Zombie( void )
+Zombie::Zombie() {}
+
+Zombie::Zombie(std::string name) : name(name) {}
+
+Zombie::~Zombie()
 {
-	return;
+    std::cout << this->name << ": destructeur call" << std::endl;
 }
 
-Zombie::~Zombie( void )
+void    Zombie::setName(std::string name)
 {
-	return;
+    this->name = name;
 }
 
-void	Zombie::announce( void )
+void    Zombie::announce()
 {
-	int		N;
-	int		i;
-	std::string	str;
-
-	i = 0;
-	N = 5;
-	str = "Bernardo";
-	Zombie *hoe = Zombie::zombieHorde( N, str );
-
-	while (i != N)
-	{
-		std::cout << hoe[i]._name << " : BraiiiiiiinnnzzzZ..." << std::endl;
-		i++;
-	}
-	delete [] hoe;
-	return;
+    std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }

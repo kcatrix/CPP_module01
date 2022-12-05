@@ -1,32 +1,19 @@
-CC = g++
+NAME = zombie
+CC = c++
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-RM = rm -f
+SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98 
+OBJS = ${SRCS:.cpp=.o}
+all: ${NAME}
 
-NAME = zomb 
-
-SRCDIR = ./srcs
-
-SRC = $(wildcard *.cpp)
-
-OBJ = $(SRC:.cpp=.o)
-
-all:
-	@$(MAKE) -j $(NAME)	
-
-$(NAME): $(SRC)
-	$(CC) $(CFLAGS) $(SRC) -o $(NAME)
-
-%.o : %.cpp
-	$(CC) -c $(CFLAGS) $(SRC) $< -o $@ 
-
-clean:
-	$(RM) $(OBJ)
+${NAME}: ${OBJS}
+	${CC} ${CFLAGS} ${OBJS} -o ${NAME}
 
 fclean: clean
-	$(RM) $(NAME)
+	rm -f ${NAME}
+
+clean:
+	rm -f ${OBJS}
 
 re: fclean all
-
-.PHONY: all clean fclean re

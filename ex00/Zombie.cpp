@@ -1,20 +1,13 @@
 #include "Zombie.hpp"
-#include <iostream>
 
-Zombie::Zombie( void )
+Zombie::Zombie(std::string name) : name(name) {}
+
+Zombie::~Zombie(void)
 {
-	return;
+    std::cout << this->name << ": destructeur call" << std::endl;
 }
 
-Zombie::~Zombie( void )
+void    Zombie::announce()
 {
-	return;
-}
-
-void	Zombie::announce( void )
-{
-	Zombie *Paolo = Zombie::newZombie( "Paolo" ); 
-	std::cout << Paolo->_name << " : BraiiiiiiinnnzzzZ..." << std::endl;
-	delete Paolo;
-	return;
+    std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }

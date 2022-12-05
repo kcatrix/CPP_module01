@@ -1,11 +1,10 @@
 #include "Zombie.hpp"
-#include <iostream>
 
-int	main()
+int main()
 {
-	Zombie zombie;
-	zombie.randomChump("Bernardo");
-	zombie.announce();
-
-	return 0;
+    randomChump("thierry");
+    Zombie *z = newZombie("Rober");
+    z->announce();
+    delete z;
+    return (1); 
 }
